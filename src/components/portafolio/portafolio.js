@@ -14,9 +14,8 @@ import IconButton from '@mui/material/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Alert from '@mui/material/Alert';
-import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -33,24 +32,23 @@ const Portafolio = ({childToParentData}) => {
     const onChangePassword = (event) => {setPassword(event.target.value)}
     const navigate = useNavigate();
 
-    const login = () => {
+    const porta =() => {
         if(usuario === '' || password === ''){
-            setAlert(true)
-        } else if(usuario === 'metal' || password === '123'){
-           setAlertAcceso(true)
-           setAlert(false)
-           setAlertUsuario(false)
+           
+           setAlert(true)
+           
         }
         else {
             setAlert(false)
             setAlertUsuario(false)
-            axios.post('http://localhost:3000/portafolio', {
+            setAlertAcceso(true)
+            axios.post('http://localhost:3001/portafolio', {
                 user: usuario,
                 password: password
             }).then((response) => {
                 setData(response.data)
                 childToParentData(data)
-                navigate("/portafolio");
+                navigate("/pagina-principal");
             }).catch((err)=>{
                 setData('')
                 setAlertUsuario(true)
@@ -58,6 +56,7 @@ const Portafolio = ({childToParentData}) => {
             })
         }
     }
+    
 
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -134,24 +133,14 @@ const Portafolio = ({childToParentData}) => {
                     <Grid item   pr={8}>
                         <Stack pl={43}  spacing={2} pt={2} pb={2} direction="row">
                             
-                                <Button  variant="contained" onClick={() =>{login()}}>Iniciar sesion</Button>
+                                <Button  variant="contained" onClick={() =>{porta()}}>Iniciar sesion</Button>       
                         </Stack>
+
                     </Grid>
 
                     <Grid pl={10} container className="footer">
-                <Link to='/administracion'>
-                    <button>administracion</button>
-                </Link>
-                <Link to='/informacion-general'>
-                    <button>informacion general</button>
-                </Link>
-                <Link to='/usuarios'>
-                    <button>usuarios</button>
-                </Link>
-                <Link to='/pagina-principal'>
-                    <button>pagina principal</button>
-                </Link>
-                <div className='text'><p>si no eres miembro puedes acceder con <br></br>usuario :metal contrseña:123</p></div>
+                
+                <div className='text'><p>si no eres miembro puedes acceder con <br></br>usuario: enus contrseña: 123</p></div>
             </Grid>
                 </div>
             </Grid>

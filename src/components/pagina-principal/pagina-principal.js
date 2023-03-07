@@ -25,7 +25,7 @@ const Informacion=()=>{
                     <button>administracion</button>
                 </Link>
                 <Link to='/portafolio'>
-                    <button>portafolio</button>
+                    <button>salir</button>
                 </Link>
                 <Link to='/usuarios'>
                     <button>usuarios</button>

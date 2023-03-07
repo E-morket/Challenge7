@@ -23,7 +23,7 @@ const Administracion=()=>{
                 <button>informacion general</button>
             </Link>
             <Link to='/portafolio'>
-                <button>portafolio</button>
+                <button>salir</button>
             </Link>
             <Link to='/pagina-principal'>
                     <button>pagina principal</button>

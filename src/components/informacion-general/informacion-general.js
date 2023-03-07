@@ -24,7 +24,7 @@ const Informacion=()=>{
                 <button>administracion</button>
             </Link>
             <Link to='/portafolio'>
-                <button>portafolio</button>
+                <button>salir</button>
             </Link>
                 
         </Grid>
